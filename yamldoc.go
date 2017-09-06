@@ -3,6 +3,7 @@ package yamldoc
 import (
 	"gopkg.in/yaml.v2"
 	"fmt"
+	"errors"
 )
 
 type YamlDocument struct {
@@ -36,7 +37,7 @@ func (y *YamlDocument) Get(path ...interface{}) (interface{}, error) {
 			arr := current.([]interface{})
 			current = arr[key]
 		default:
-			return nil, error(fmt.Sprintf("unexpected key type: %+v\n", key))
+			return nil, errors.New(fmt.Sprintf("unexpected key type: %+v\n", key))
 		}
 	}
 
@@ -66,7 +67,7 @@ func (y *YamlDocument) Set(value interface{}, path ...interface{}) error {
 		arr := current.([]interface{})
 		arr[key] = value
 	default:
-		return error(fmt.Sprintf("unexpected key type: %+v\n", key))
+		return errors.New(fmt.Sprintf("unexpected key type: %+v\n", key))
 	}
 
 	return nil
