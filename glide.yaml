@@ -1,0 +1,3 @@
+package: github.com/glassechidna/yamldoc
+import:
+- package: gopkg.in/yaml.v2

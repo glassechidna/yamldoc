@@ -1,0 +1,6 @@
+hash: 384315762e686f47fe477652e5f9748c84eb8a0c9f80a091e092d44d9e0b5047
+updated: 2017-09-06T14:47:18.808427827+10:00
+imports:
+- name: gopkg.in/yaml.v2
+  version: cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b
+testImports: []
