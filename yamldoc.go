@@ -32,6 +32,7 @@ func (y *YamlDocument) Get(path ...interface{}) (interface{}, error) {
 		switch key := keyIface.(type) {
 		case string:
 			item, _ := itemForKey(current.(yaml.MapSlice), key)
+			if item == nil { return nil, errors.New(fmt.Sprintf("no item at path %+v\n", path)) }
 			current = item.Value
 		case int:
 			arr := current.([]interface{})
